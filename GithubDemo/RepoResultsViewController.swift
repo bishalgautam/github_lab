@@ -10,11 +10,13 @@ import UIKit
 import MBProgressHUD
 
 // Main ViewController
-class RepoResultsViewController: UIViewController {
+class RepoResultsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
     var searchBar: UISearchBar!
     var searchSettings = GithubRepoSearchSettings()
 
+    @IBOutlet weak var tableView: UITableView!
+    
     var repos: [GithubRepo]!
 
     override func viewDidLoad() {
@@ -31,6 +33,17 @@ class RepoResultsViewController: UIViewController {
         // Perform the first search when the view controller first loads
         doSearch()
     }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 20
+        
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
+        
+        
+    }
+
+    
 
     // Perform the search.
     private func doSearch() {
